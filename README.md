@@ -1,1 +1,3 @@
-0xafa59ee00c86377d6e3bdcc9dede382b8cfb53801bb61522d8af5de3dd64913e
+Star Notary
+Contract TX -> 0xafa59ee00c86377d6e3bdcc9dede382b8cfb53801bb61522d8af5de3dd64913e
+Contract Address -> 0x02BFE247E2e5A115974819181707f65221A0232C
