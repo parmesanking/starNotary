@@ -92,7 +92,7 @@
       } else {
         // Instantiate and set Ganache as your provider
         web3 = new Web3(
-          new Web3.providers.HttpProvider("http://localhost:8545")
+          new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/16ce718b5c5d46cda2a84a3d92394aaa")
         );
       }
       console.log(web3.currentProvider);
@@ -645,7 +645,7 @@
       ]);
       // Grab the contract at specified deployed address with the interface defined by the ABI
       var starNotary = StarNotary.at(
-        "0x49f033beb7a9579fe84a34d337e5f78eefe95f25"
+        "0x7facce1e2b89b7d8018258f55c30a8f79877417b"
       );
 
       // Enable claim button being clicked
