@@ -23,7 +23,7 @@ contract StarNotary is ERC721, MinterRole {
         require(checkIfStarExist(_ra, _dec, _mag) == false, "Star already exists!");
 
         Star memory newStar = Star(_name, _ra, _dec, _mag, _story);
-        bytes32 hash = keccak256(abi.encodePacked(_ra, _dec, _mag));
+        bytes32 hash = getStarHash(_ra, _dec, _mag);
         uint256 _tokenId = ++tokenCounter;
         knownStars[hash] = _tokenId;
         tokenIdToStarInfo[_tokenId] = newStar;
