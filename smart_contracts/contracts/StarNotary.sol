@@ -1,7 +1,7 @@
 pragma solidity ^0.4.23;
 
-import 'openzeppelin-solidity/contracts/token/ERC721/ERC721.sol';
-import 'openzeppelin-solidity/contracts/access/roles/MinterRole.sol';
+import "openzeppelin-solidity/contracts/token/ERC721/ERC721.sol";
+import "openzeppelin-solidity/contracts/access/roles/MinterRole.sol";
 
 contract StarNotary is ERC721, MinterRole { 
 
@@ -27,7 +27,7 @@ contract StarNotary is ERC721, MinterRole {
         uint256 _tokenId = ++tokenCounter;
         knownStars[hash] = _tokenId;
         tokenIdToStarInfo[_tokenId] = newStar;
-
+        
         _mint(msg.sender, _tokenId);
     }
 
@@ -57,7 +57,12 @@ contract StarNotary is ERC721, MinterRole {
     }
 
     function checkIfStarExist(string _ra, string _dec, string _mag) public view returns (bool){
-        bytes32 hash = keccak256(abi.encodePacked(_ra, _dec, _mag));
+        bytes32 hash = getStarHash(_ra, _dec, _mag);
         return knownStars[hash]>0;
+    }
+
+    function getStarHash(string _ra, string _dec, string _mag) public view returns (bytes32){
+        return keccak256(abi.encodePacked(_ra, _dec, _mag));
+        
     }
 }
